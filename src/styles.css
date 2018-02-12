@@ -1,1 +1,117 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #F8F9FA;
+
+}
+
+.case {
+    display: table;
+    width: 100%;
+}
+
+.element {
+    display: table-cell;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.footer{
+    background-color: black;
+    color: #F8F9FA;
+    margin-bottom: 0px;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+
+.stores{
+    width: 10em;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.eventos{
+    background-color: white;
+}
+
+.paddingH{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+.paddingV{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.paddingB{
+    padding-bottom: 50px;
+}
+.paddingT{
+    padding-top: 50px;
+}
+.carousel-item{
+    max-width: 100vh;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    color: #ffffff;
+    font-size: 18px;
+    background: #FF2E6A;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-radius: 0%;
+    border-color: transparent;
+  }
+  
+  .btn:hover {
+    background: #FF2E6A;
+    text-decoration: none;
+  }
+
+  .form-group{
+      border: 0%;
+      border-radius: 0%!important;
+      border-style: none;
+  }
+
+  .parallax-inicio {
+    /*background-image: url("http://i1378.photobucket.com/albums/ah119/StangeStudio/1_zpsnq47razx.jpg");*/
+    /*background-image: url("http://pluggnetworks.com/blog/wp-content/uploads/2016/08/Careers-in-Nightlife-HiRes-Cover.jpg")*/
+    background-image: url("https://i.imgur.com/npbkdmy.jpg");
+    min-height: 90vh;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.links{
+    color: #0EC18E;
+    text-decoration: none;
+}
+
+@media (max-width: 768px){
+
+    .logo{
+        width: auto;
+        max-height: 70%;
+        padding-top: 10vh;
+    }
+}
