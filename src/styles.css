@@ -113,6 +113,9 @@ body{
 
 /* Download */
 
+.download{
+    background-color: white;
+}
 .stores2{
     padding-left: 20px;
     padding-right: 20px;
