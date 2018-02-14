@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ticket-pass App', () => {
+describe('t-pass App', () => {
   let page: AppPage;
 
   beforeEach(() => {
