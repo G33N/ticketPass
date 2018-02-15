@@ -3,7 +3,6 @@
 /* General */
 body{
     background-color: #F8F9FA;
-
 }
 .hr{
     border-color:#0EC18E;
@@ -183,6 +182,44 @@ body{
 .hrf{
     border-color: #666666;
 }
+
+
+
+/* EVENTS PAGE */
+
+.pink{
+    background-color: #ff2e6a;
+    color: #F8F9FA;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.form{
+    border: #ff2e6a;
+}
+
+.pinktext{
+    color: #ff2e6a;
+}
+
+.pinktext:hover{
+    color: #0EC18E;
+    background-color: transparent;
+}
+
+.paddingform{
+    padding: 10px 20px 10px 20px;
+}
+
+.fullwidth{
+    width: 100%;
+}
+
+.inputs{
+    border: red;
+    border-bottom-style: solid;
+}
+
 
 @media (max-width: 768px){
 /* Home - Cover */
