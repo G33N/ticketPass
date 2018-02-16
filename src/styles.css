@@ -215,12 +215,50 @@ body{
     width: 100%;
 }
 
-.inputs{
-    border: red;
-    border-bottom-style: solid;
+input[type=date], input[type=datetime] {
+    display: -webkit-flex;
 }
 
 
+/* Event page */
+
+
+.pinkevent{
+    background-color: #ff2e6a;
+    height: 45vh;
+    color: #F8F9FA;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.cover-event {
+    background-image: url("http://www.thisiscolossal.com/wp-content/uploads/2016/05/LiamWong_01.jpg");
+    /*background-image: url("http://pluggnetworks.com/blog/wp-content/uploads/2016/08/Careers-in-Nightlife-HiRes-Cover.jpg");*/
+    /*background-image: url("https://i.imgur.com/npbkdmy.jpg");*/
+    min-height: 45vh;
+    width: 100%;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+
+}
+
+.eventcover{
+    background-image: url('https://orig00.deviantart.net/b454/f/2012/321/7/e/tokyo_nightlife_by_steelscreen-d5l91qy.jpg');
+
+  /* Set a specific height */
+  min-height: 50vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card{
+    background-color: #F8F9FA;
+}
 @media (max-width: 768px){
 /* Home - Cover */
     .logo{
@@ -228,4 +266,17 @@ body{
         max-height: 70%;
         padding-top: 10vh;
     }
+
+/* Event page */
+
+.pinkevent {
+    height: 93vh;
+}
+.eventcover{
+  background-attachment: fixed;
+}
+.card{
+    padding-left: 0px;
+    padding-right: 0px;
+}
 }
