@@ -1,3 +1,5 @@
+import { EventsService } from './services/events/events.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +14,8 @@ import { ContentComponent } from './content/content.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './ui/loading/loading.component';
 
 
 @NgModule({
@@ -25,13 +28,17 @@ import { ContactComponent } from './contact/contact.component';
     ContentComponent,
     HomeComponent,
     HeaderComponent,
-    ContactComponent
+    ContactComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     routes
   ],
-  providers: [],
+  providers: [
+    EventsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

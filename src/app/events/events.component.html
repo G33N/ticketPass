@@ -51,68 +51,16 @@
 
 
 <section id="eventslist">
-
+<app-loading *ngIf="showSpinner"></app-loading>
   <div id="eventslist">
     <div class="container paddingV">
       <div class="row paddingB">
-        <div class="col">
+        <div class="col" *ngFor="let event of events">
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
+            <img class="card-img-top" src="{{event.ImageUri}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row paddingB">
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Evento x</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title">{{event.Title}}</h5>
+              <p class="card-text">{{event.Description}}</p>
               <a routerLink="/content/event" class="btn btn-primary">Ir al evento</a>
             </div>
           </div>
