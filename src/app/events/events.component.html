@@ -1,66 +1,87 @@
 <section id="top" class="events">
-  <div class="pink">
-    <div class="text-uppercase text-center font-weight-light paddingV">
-      <h2 class="font-weight-light">Eventos</h2>
+    <div class="pink">
+        <div class="text-uppercase text-center font-weight-light paddingV">
+            <h2 class="font-weight-light">Eventos</h2>
+        </div>
     </div>
-  </div>
 </section>
 <section id="eventsfilter">
-  <div class="container paddingV">
-    <form>
-      <div class="form-row inputs">
-        <div class="form-group col-md-3 paddingform">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fab fa-searchengin"></i></div>
-            </div>
-            <input type="text" class="form-control" placeholder="Escribí lo que querés buscar...">
-          </div>
-        </div>
-        <div class="form-group col-md-3 paddingform">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fas fa-ticket-alt"></i></div>
-            </div>
-            <select id="inputState" class="form-control">
+    <div class="container paddingV">
+        <form>
+            <div class="form-row inputs">
+                <div class="form-group col-md-3 paddingform">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fab fa-searchengin"></i></div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Escribí lo que querés buscar...">
+                    </div>
+                </div>
+                <div class="form-group col-md-3 paddingform">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-ticket-alt"></i></div>
+                        </div>
+                        <select id="inputState" class="form-control">
               <option selected>Tipo evento...</option>
               <option>...</option>
             </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 paddingform">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fas fa-map-marker"></i></div>
-            </div>
-            <select id="inputState" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group col-md-3 paddingform">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-map-marker"></i></div>
+                        </div>
+                        <select id="inputState" class="form-control">
               <option selected>Localidad</option>
               <option>...</option>
             </select>
-          </div>
-        </div>
-        <div class="form-group col-md-3 paddingform">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
-            </div>
-            <select id="inputState" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group col-md-3 paddingform">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                        </div>
+                        <select id="inputState" class="form-control">
               <option selected>Ordenar por fecha</option>
               <option>Más próximas</option>
               <option>Últimas a próximas</option>
             </select>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-12 col-xs-12 mx-auto">
-        <button type="submit" class="btn btn-primary font-weight-light" style="width:100%"><i class="fas fa-search"></i> Buscar</button>
-      </div>
-    </form>
-  </div>
-  <hr class="hr">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-xs-12 mx-auto">
+                <button type="submit" class="btn btn-primary font-weight-light" style="width:100%"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+        </form>
+    </div>
+    <hr class="hr">
 </section>
+
+
 <section id="eventslist">
-  <app-loading *ngIf="showSpinner"></app-loading>
+    <app-loading *ngIf="showSpinner"></app-loading>
+    <div id="eventslist">
+        <div class="container paddingV">
+            <div class="row paddingB">
+                <div class="col" *ngFor="let event of events">
+                    <div class="card" style="width: 18rem;">
+                        <div class="img-container">
+                            <img class="card-img-top" src="{{event.ImageUri}}">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-light">{{event.Title}}</h5>
+                            <p class="card-text font-weight-light">{{event.Description}}</p>
+                            <a routerLink="/content/event" class="btn btn-primary font-weight-light">Ir al evento</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
   <div id="eventslist">
     <div class="container paddingV">
       <div class="row paddingB">
@@ -77,7 +98,8 @@
       </div>
     </div>
   </div>
-  <!--
+-->
+    <!--
   <div class="container paddingB">
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
@@ -101,11 +123,11 @@
   </div>
 
 -->
-  <div class="container">
-    <div class="row paddingV">
-      <div class="col-lg-3 col-sm-12 col-xs-12 mx-auto">
-        <button type="submit" class="btn btn-primary font-weight-light" style="width:100%"><i class="fas fa-plus"></i></button>
-      </div>
+    <div class="container">
+        <div class="row paddingV">
+            <div class="col-lg-3 col-sm-12 col-xs-12 mx-auto">
+                <button type="submit" class="btn btn-primary font-weight-light" style="width:100%"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
