@@ -1,12 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-
 /* General */
-body{
+
+body {
     background-color: #F8F9FA;
 }
-.hr{
-    border-color:#0EC18E;
-    width:300px; 
+
+.hr {
+    border-color: #0EC18E;
+    width: 300px;
 }
 
 .case {
@@ -22,18 +22,21 @@ body{
     vertical-align: middle;
 }
 
-.paddingH{
+.paddingH {
     padding-left: 15%;
     padding-right: 15%;
 }
-.paddingV{
+
+.paddingV {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.paddingB{
+
+.paddingB {
     padding-bottom: 50px;
 }
-.paddingT{
+
+.paddingT {
     padding-top: 50px;
 }
 
@@ -49,283 +52,21 @@ body{
     border: none;
     border-radius: 0%;
     border-color: transparent;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     background: #FF2E6A;
     text-decoration: none;
     -webkit-box-shadow: 0px 4px 7px #666666;
     -moz-box-shadow: 0px 4px 7px #666666;
     box-shadow: 0px 4px 7px #666666;
-  }
-
-
-
-/* Home - Cover */
-
-.cover-inicio {
-    background-image: url("https://i.imgur.com/mJZMGQi.jpg");
-    /*background-image: url("http://pluggnetworks.com/blog/wp-content/uploads/2016/08/Careers-in-Nightlife-HiRes-Cover.jpg");*/
-    /*background-image: url("https://i.imgur.com/npbkdmy.jpg");*/
-    min-height: 90vh;
-    background-attachment: scroll;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-}
-
-.stores{
-    width: 12em;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-}
-
-/* Info - Iconos */
-
-.icons{
-    font-size:3em;
-    color:#ff2e6a
-}
-
-
-/* Eventos */
-
-.eventos{
-    background-color: white;
 }
 
 .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
-}
-
-.hre{
-    border-color:#0EC18E;
-    width:300px;
-}
-
-.flechas{
-    font-size:3em;
-    color:#ff2e6a;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-}
- 
-.flechas:hover{
-    color:#0EC18E;
-}
-
-
-/* Contacto */
-
-.download{
-    min-height: auto;
-}
-
-.form-group{
-    border: 0%;
-    border-radius: 0%!important; 
-    border-style: none;
-}
-
-.hrc{
-    border-color:#0EC18E;
-}
-
-.linksc{
-    text-decoration: none; 
-    color:#FF2E6A;
-}
-
-.linksc:hover{
-    color:gray;
-}
-
-
-/* Download */
-
-.download{
-    background-color: white;
-}
-.stores2{
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -webkit-filter: contrast(220%);filter: contrast(220%);
-}
-
-.storesh:hover{
-    -webkit-filter: contrast(100%);filter: contrast(100%);
-}
-
-
-/* Footer */
-
-.footer{
-    background-color: black;
-    color: #F8F9FA;
-    margin-bottom: 0px;
-}
-
-.links{
-    color: #0EC18E;
-}
-.links:hover{
-    color: #FF2E6A;
-}
-
-.hrf{
-    border-color: #666666;
-}
-
-
-
-/* EVENTS PAGE */
-
-.pink{
-    background-color: #ff2e6a;
-    color: #F8F9FA;
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-.form{
-    border: #ff2e6a;
-}
-
-.pinktext{
-    color: #ff2e6a;
-}
-
-.pinktext:hover{
-    color: #0EC18E;
-    background-color: transparent;
-}
-
-.paddingform{
-    padding: 10px 20px 10px 20px;
-}
-
-.fullwidth{
-    width: 100%;
-}
-
-.form-control-digits-2 {
-    display: inline-block;
-    box-sizing: content-box;
-    width: 2ch;
-    font-family: monospace;
-  }
-  .form-control-digits-4 {
-    display: inline-block;
-    box-sizing: content-box;
-    width: 4ch;
-    font-family: monospace;
-  }
-/* EVENT PAGE */
-
-
-.pinkevent{
-    background-color: #ff2e6a;
-    height: 45vh;
-    color: #F8F9FA;
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-.pinkbar{
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-.pinkbar2{
-    color: #F8F9FA;
-    background-color: #FF2E6A;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.cover-event {
-    background-image: url("http://www.thisiscolossal.com/wp-content/uploads/2016/05/LiamWong_01.jpg");
-    /*background-image: url("http://pluggnetworks.com/blog/wp-content/uploads/2016/08/Careers-in-Nightlife-HiRes-Cover.jpg");*/
-    /*background-image: url("https://i.imgur.com/npbkdmy.jpg");*/
-    min-height: 45vh;
-    width: 100%;
-    background-attachment: scroll;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-
-}
-
-.eventcover{
-    background-image: url('https://orig00.deviantart.net/b454/f/2012/321/7/e/tokyo_nightlife_by_steelscreen-d5l91qy.jpg');
-
-  /* Set a specific height */
-  min-height: 50vh;
-  /* Create the parallax scrolling effect */
-  background-attachment: scroll;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.card{
-    background-color: #F8F9FA;
-}
-
-.btn2 {
-    -webkit-box-shadow: 0px 1px 3px #666666;
-    -moz-box-shadow: 0px 1px 3px #666666;
-    box-shadow: 0px 1px 3px #666666;
-    color: #ffffff;
-    font-size: 18px;
-    background: #FF2E6A;
-    padding: 5px 20px 5px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 0%;
-    border-color: transparent;
-  }
-  
-  .btn2:hover {
-    background: #FF2E6A;
-    text-decoration: none;
-    -webkit-box-shadow: 0px 4px 7px #666666;
-    -moz-box-shadow: 0px 4px 7px #666666;
-    box-shadow: 0px 4px 7px #666666;
-  }
-@media (max-width: 768px){
-/* Home - Cover */
-    .logo{
-        width: auto;
-        max-height: 70%;
-        padding-top: 10vh;
-    }
-
-/* Event page */
-
-.pinkevent {
-    height: 93vh;
-}
-.eventcover{
-  background-attachment: fixed;
-}
-.card{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-.pinkbar2{
-    visibility: unset;
-}
-.pinkbar{
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
 }

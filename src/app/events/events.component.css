@@ -1,0 +1,45 @@
+/* EVENTS PAGE */
+
+.hre {
+    border-color: #0EC18E;
+    width: 300px;
+}
+
+.flechas {
+    font-size: 3em;
+    color: #ff2e6a;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.flechas:hover {
+    color: #0EC18E;
+}
+
+.pink {
+    background-color: #ff2e6a;
+    color: #F8F9FA;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.form {
+    border: #ff2e6a;
+}
+
+.pinktext {
+    color: #ff2e6a;
+}
+
+.pinktext:hover {
+    color: #0EC18E;
+    background-color: transparent;
+}
+
+.paddingform {
+    padding: 10px 20px 10px 20px;
+}
+
+.fullwidth {
+    width: 100%;
+}
