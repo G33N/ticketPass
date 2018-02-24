@@ -73,8 +73,9 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title font-weight-light">{{event.Title}}</h5>
+                            <time>{{event.StartDateTime}}</time>
                             <p class="card-text font-weight-light">{{event.Description}}</p>
-                            <a routerLink="/content/event" class="btn btn-primary font-weight-light">Ir al evento</a>
+                            <a (click)="goToEventDetails(event)" class="btn btn-primary font-weight-light">Ir al evento</a>
                         </div>
                     </div>
                 </div>

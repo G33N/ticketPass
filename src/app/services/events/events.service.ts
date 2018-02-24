@@ -21,4 +21,9 @@ export class EventsService {
     const events$ = this.http.get(this.apiUrl + this.entity + 'all', this.httpOptions);
     return events$;
   }
+  public readByKey(key) {
+    // now returns an Observable of Config
+    const event$ = this.http.get(this.apiUrl + this.entity + key, this.httpOptions);
+    return event$;
+  }
 }
