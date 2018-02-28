@@ -29,7 +29,7 @@ export const router: Routes = [
         component: EventsComponent
       },
       {
-        path: 'event',
+        path: 'event/:id',
         component: EventComponent
       }
     ]

@@ -1,3 +1,4 @@
+import { MercadoPagoService } from './services/mercado-pago/mercado-pago.service';
 import { EventsService } from './services/events/events.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './ui/loading/loading.component';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import { LoadingComponent } from './ui/loading/loading.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    routes
+    routes,
+    FormsModule
   ],
   providers: [
-    EventsService
+    EventsService,
+    MercadoPagoService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,13 @@
+import { MercadoPagoService } from './../services/mercado-pago/mercado-pago.service';
 import { EventsService } from './../services/events/events.service';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Events } from '../models/events';
 // ROUTER
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+// FORMS
+import { CurrencyPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-event',
@@ -14,15 +18,17 @@ export class EventComponent implements OnInit {
   eventKey: String;
   event: any;
   event$: any;
-  ticket: any;
+  ticket: { total: any, price: any, quantity: any };
   constructor(
     private eventsService: EventsService,
+    private mercadoPagoService: MercadoPagoService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.read(this.getRouteParams());
+    this.ticket = { total: 250, price: 250, quantity: 1 };
   }
 
   read(key) {
@@ -36,13 +42,17 @@ export class EventComponent implements OnInit {
     // READ ROUTE PARAMS
     let param: any;
     this.route.params.subscribe((params: Events) => param = params);
-    this.eventKey = param.Id;
-    return param.Id;
+    this.eventKey = param.id;
+    return param.id;
   }
 
-  public calculatePrice() {
+  calculatePrice(): void {
     // Calculate price of the quantity
-    this.ticket.total = this.ticket.quantity * this.ticket.price;
+    this.event = this.ticket.total = this.ticket.quantity * this.ticket.price;
+  }
+
+  buy(): void {
+    this.mercadoPagoService.getPaymentMethods();
   }
 
 }

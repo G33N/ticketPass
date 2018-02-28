@@ -27,8 +27,9 @@ export class EventsComponent implements OnInit {
       this.showSpinner = false;
     });
   }
+
   goToEventDetails(event) {
-    this.router.navigate(['/content/event', event]);
+    this.router.navigate(['/content/event', event.Id]);
   }
 
 }
