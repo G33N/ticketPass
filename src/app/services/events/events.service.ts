@@ -18,12 +18,17 @@ export class EventsService {
 
   public getAllEvents() {
     // now returns an Observable of Config
-    const events$ = this.http.get(this.apiUrl + this.entity + 'all', this.httpOptions);
+    const events$ = this.http.get(this.apiUrl + this.entity + 'oftype/1', this.httpOptions);
     return events$;
   }
   public readByKey(key) {
     // now returns an Observable of Config
-    const event$ = this.http.get(this.apiUrl + this.entity + key, this.httpOptions);
+    const event$ = this.http.get(this.apiUrl + this.entity + key + '/html', this.httpOptions);
+    return event$;
+  }
+  public getEventsTickets(key) {
+    // now returns an Observable of Config
+    const event$ = this.http.get(this.apiUrl + this.entity + key + '/tickets', this.httpOptions);
     return event$;
   }
 }

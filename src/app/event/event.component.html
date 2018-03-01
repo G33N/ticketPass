@@ -48,11 +48,11 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-lg-3 col-sm-12 col-xs-12 pinkbar hidden-md-up">
-                        <p class="font-weight-light">Titulo o breve descripción del ticket.</p>
-                      </div>
+                      <select (change)="calculatePrice(ticket)">
+                        <option *ngFor="let ticket of tickets" value="{{ticket.Price}}">{{ticket.Name}}</option>
+                      </select>
                       <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
-                        <input type="number" placeholder="Cantidad tickets" [(ngModel)]="ticket.quantity" (change)="calculatePrice()">
+                        <input type="number" placeholder="Cantidad tickets" (change)="calculatePrice(ticket)">
                       </div>
                       <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
                         <p class="font-weight-light">{{ ticket.total | currency }}</p>

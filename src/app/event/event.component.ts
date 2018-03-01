@@ -18,17 +18,22 @@ export class EventComponent implements OnInit {
   eventKey: String;
   event: any;
   event$: any;
-  ticket: { total: any, price: any, quantity: any };
+  tickets: any;
+  tickets$: any;
+  purchaseDetail: { ticketType: number, ticketQuantity: number };
   constructor(
     private eventsService: EventsService,
     private mercadoPagoService: MercadoPagoService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.event = [];
+    this.event$ = [];
+  }
 
   ngOnInit() {
     this.read(this.getRouteParams());
-    this.ticket = { total: 250, price: 250, quantity: 1 };
+    this.getTickets(this.getRouteParams());
   }
 
   read(key) {
@@ -48,7 +53,16 @@ export class EventComponent implements OnInit {
 
   calculatePrice(): void {
     // Calculate price of the quantity
-    this.event = this.ticket.total = this.ticket.quantity * this.ticket.price;
+    this.event = this.tickets.total = this.tickets.quantity * this.tickets.price;
+  }
+
+  getTickets(key) {
+    // Get all ticket of the event
+    this.tickets$ = this.eventsService.getEventsTickets(key);
+    this.tickets$.subscribe(snapshot => {
+      this.tickets = snapshot;
+      console.log(this.tickets);
+    });
   }
 
   buy(): void {
