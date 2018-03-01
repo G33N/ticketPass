@@ -9,13 +9,13 @@
           <div class="col-lg-12 col-sm-12 col-xs-12">
             <div id="eventdata" class="float-left">
               <p>
-                <i class="fas fa-calendar-alt"></i>{{event.StartDateTime}}</p>
+                <i class="fas fa-calendar-alt"></i> {{event.StartDateTime}}</p>
             </div>
           </div>
           <div class="col-lg-12 col-sm-12 col-xs-12">
             <div id="eventdata" class="float-left">
               <p>
-                <i class="fas fa-map-marker"></i>{{event.Location.FullAddress}}</p>
+                <i class="fas fa-map-marker"></i> {{event.Location.FullAddress}}</p>
             </div>
           </div>
         </div>
@@ -24,8 +24,8 @@
   </div>
 </section>
   <section id="event">
-    <div class="container paddingV">
-      <div class="row">
+    <div class="container">
+      <div class="row paddingV">
         <div class="col">
             <div class="card">
                 <img class="card-img-top" src="{{event.Images [0].Uri}}" alt="Card image">
@@ -59,6 +59,12 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
                         <input type="submit" name="" id="" class="btn2 float-right font-weight-light"  (click)="calculatePrice()" value="Comprar">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 col-sm-12 col-xs-12">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4282706264967!2d13.38818681616263!3d52.50758812981195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d15c26d8cd%3A0x23a50042477d89c8!2sCheckpoint+Charlie!5e0!3m2!1ses!2sar!4v1519936468446"
+  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                       </div>
                     </div>
                   </div>
