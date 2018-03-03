@@ -1,3 +1,4 @@
+import { LoginService } from './services/login/login.service';
 import { MercadoPagoService } from './services/mercado-pago/mercado-pago.service';
 import { EventsService } from './services/events/events.service';
 
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './ui/loading/loading.component';
 
 import { FormsModule } from '@angular/forms';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     routes,
-    FormsModule
+    FormsModule,
+    FacebookModule.forRoot()
   ],
   providers: [
     EventsService,
-    MercadoPagoService
+    MercadoPagoService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,20 +10,26 @@ export class EventsService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       // tslint:disable-next-line:max-line-length
-      'Authorization': 'bearer PnX3OCmGII-k44Vso0Mvi8pVUXkTAuLxeFVYjNW7lDZT5HqQ_Whq0l5_wETA6LTQYLcyfOeO-_J-GfWuxpN0p7WW8SeTD_N3_nuafrxODGIKhYntSeL1rL4Yr3chvwcyFW54Ef08uGis9tQhRD955O5UfzL6m53Z42l7hBHvC2TefAPj19utFYGjZL4kH9TEJYlVGeDlHDJ3xCw8KISqvCUfegZLEtJo14xVT6RoIqpbhZKnDgFdeMbSC9w67xRbFK5YS9eTvS2ZqHSHUZ62LEG1Ih7otw85pLwbt5Dm53buZ0DM0XY5n8-thxQMLAvHWZRuti7UM5mJF2Qa4V0RZ_uIcIq6sfRbPdyg4OP96FgL-4d0tKQT7xBr1r9qQqZgeLR46DNw2bbGzYDvH4rP3soXB_XrkyyUFVMAt-EDOMW3wN8eA20HMYNoU0AP-6u_LhGl1Fbh5u69akE8TYUtV73DoEGnFpIA8QTIxGET0kMEXzOf78Nq5THmDk6KWoPQx1VMBKXnQQsdcCH907zbhg'
+      'Authorization': 'bearer vkA2_gbgijwmIznlaHL4YDkmkRhNNQOIcKzN5L6yYU63yq-aTBjTHRLLhFYBcmv65vf3jwWDtltOoy00Ntx_H-HPoLO2fLpn02oayZPVl06L3NuRdLLXthqB9IrNe770iGwTRk73D0bnHSSywuV6_PSqNJIxggu88LQ9Kz7pA0_t7gT8QnHs4D_BXXS3p7ASMKD3iC2D-6Ehb3pP2Hixz9_wYjh2JUgtdPZJIr7tPDd-RPzyeqvF-gTgyOyC9wREi0J3JnJsFR7wJLfvhsz-4ddRjOKzHGy1ta2OdCkMql6NammuDq8v8yGvuqJm8l6AqbULXiASe2_d-wSzFhO-Ih__8Yb5RguugdA3_kCAdbZ8Gh6wNVs1MMX1BCVpK5inbEfXXKMqWWwo8QqfN4MRDEMK4JKhARNBcUd3lM1K6qsyBdOXpATbSETXeXJXlUeTiwuyNpyWEsQBoOTyo3vxGln1KolsJ52RdxHFdRX734Y'
     })
   };
-  constructor(private http: HttpClient) {
-  }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   public getAllEvents() {
     // now returns an Observable of Config
-    const events$ = this.http.get(this.apiUrl + this.entity + 'all', this.httpOptions);
+    const events$ = this.http.get(this.apiUrl + this.entity + 'oftype/1', this.httpOptions);
     return events$;
   }
   public readByKey(key) {
     // now returns an Observable of Config
-    const event$ = this.http.get(this.apiUrl + this.entity + key, this.httpOptions);
+    const event$ = this.http.get(this.apiUrl + this.entity + key + '/html', this.httpOptions);
+    return event$;
+  }
+  public getEventsTickets(key) {
+    // now returns an Observable of Config
+    const event$ = this.http.get(this.apiUrl + this.entity + key + '/tickets', this.httpOptions);
     return event$;
   }
 }
