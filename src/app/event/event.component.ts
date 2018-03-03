@@ -20,7 +20,6 @@ export class EventComponent implements OnInit {
   event$: any;
   tickets: any;
   tickets$: any;
-  purchaseDetail: { ticketType: number, ticketQuantity: number };
   constructor(
     private eventsService: EventsService,
     private mercadoPagoService: MercadoPagoService,
@@ -53,7 +52,6 @@ export class EventComponent implements OnInit {
 
   calculatePrice(): void {
     // Calculate price of the quantity
-    this.event = this.tickets.total = this.tickets.quantity * this.tickets.price;
   }
 
   getTickets(key) {
