@@ -23,53 +23,63 @@
     </div>
   </div>
 </section>
-  <section id="event">
-    <div class="container">
-      <div class="row paddingV">
-        <div class="col">
-            <div class="card">
-                <img class="card-img-top" src="{{event.Images [0].Uri}}" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title font-weight-light">Subtítulo del evento</h4>
-                    <hr class="hr2">
-                    <p class="card-text font-weight-light">{{event.Description}}</p>
-                    <div class="row hidden-sm-down">
-                      <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                        <h5 class="font-weight-light">Tipo de ticket</h5>
-                      </div>
-                      <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                        <h5 class="font-weight-light">Cantidad</h5>
-                      </div>
-                      <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                        <h5 class="font-weight-light">Precio</h5>
-                      </div>
-                      <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                        <h5></h5>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <select (change)="calculatePrice(ticket)">
-                        <option *ngFor="let ticket of tickets" value="{{ticket.Price}}">{{ticket.Name}}</option>
-                      </select>
-                      <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
-                        <input type="number" placeholder="Cantidad tickets" (change)="calculatePrice(ticket)">
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
-                        <p class="font-weight-light">{{ ticket.total | currency }}</p>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-xs-12 pinkbar">
-                        <input type="submit" name="" id="" class="btn2 float-right font-weight-light"  (click)="calculatePrice()" value="Comprar">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-12 col-sm-12 col-xs-12">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4282706264967!2d13.38818681616263!3d52.50758812981195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d15c26d8cd%3A0x23a50042477d89c8!2sCheckpoint+Charlie!5e0!3m2!1ses!2sar!4v1519936468446"
-  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                      </div>
-                    </div>
-                  </div>
+<section id="event">
+  <div class="container">
+    <div class="row paddingV">
+      <div class="col">
+        <div class="card">
+          <img class="card-img-top" src="{{ getImage(event.Images) }}" alt="Card image">
+
+          <div class="card-body">
+            <h4 class="card-title font-weight-light">Subtítulo del evento</h4>
+            <hr class="hr2">
+            <p class="card-text font-weight-light">{{event.Description}}</p>
+            <div class="row hidden-sm-down">
+              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
+                <h5 class="font-weight-light">Tipo de ticket</h5>
               </div>
+              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
+                <h5 class="font-weight-light">Cantidad</h5>
+              </div>
+              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
+                <h5 class="font-weight-light">Precio</h5>
+              </div>
+              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
+                <h5></h5>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr *ngFor="let ticket of tickets">
+                    <td>
+                      <input type="number">
+                    </td>
+                    <td>Ticket 1</td>
+                    <td>$total</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <button class="btn btn-primary" type="button">Comprar $total</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+              <!-- this creates a google map on the page with the given lat/lng from -->
+              <!-- the component as the initial center of the map: -->
+              <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

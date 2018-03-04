@@ -21,6 +21,8 @@ import { LoadingComponent } from './ui/loading/loading.component';
 
 import { FormsModule } from '@angular/forms';
 import { FacebookModule } from 'ngx-facebook';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import { FacebookModule } from 'ngx-facebook';
     HttpClientModule,
     routes,
     FormsModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA1d42Clwz6sTqocsvk4S1OU8Zh-P9hHFw'
+    })
   ],
   providers: [
     EventsService,

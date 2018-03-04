@@ -7,6 +7,7 @@ import { Events } from '../models/events';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // FORMS
 import { CurrencyPipe } from '@angular/common';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class EventComponent implements OnInit {
   event$: any;
   tickets: any;
   tickets$: any;
+  lat = 51.678418;
+  lng = 7.809007;
   constructor(
     private eventsService: EventsService,
     private mercadoPagoService: MercadoPagoService,
@@ -30,12 +33,7 @@ export class EventComponent implements OnInit {
     this.event$ = [];
   }
 
-  ngOnInit() {
-    this.read(this.getRouteParams());
-    this.getTickets(this.getRouteParams());
-  }
-
-  read(key) {
+  read(key): void {
     this.event$ = this.eventsService.readByKey(key);
     this.event$.subscribe(snapshot => {
       this.event = snapshot;
@@ -63,8 +61,23 @@ export class EventComponent implements OnInit {
     });
   }
 
+  getImage(images) {
+    let imageUri = '';
+    images.forEach(image => {
+      if (image.IsDefault) {
+        imageUri = image.Uri;
+      }
+    });
+    return imageUri;
+  }
+
   buy(): void {
     this.mercadoPagoService.getPaymentMethods();
+  }
+
+  ngOnInit() {
+    this.read(this.getRouteParams());
+    this.getTickets(this.getRouteParams());
   }
 
 }
