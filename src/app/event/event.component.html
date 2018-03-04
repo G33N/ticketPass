@@ -34,7 +34,7 @@
             <hr class="hr2">
             <p class="card-text font-weight-light">{{event.Description}}</p>
             <div class="table-responsive-sm">
-              <table class="table">
+              <table class="table font-weight-light">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -45,27 +45,27 @@
                 <tbody>
                   <tr>
                     <td>
-                      <input type="number" style="width:25px;color:#FF2E6A;border: 0px solid;background-color:#e5e5e5" placeholder="#" [(ngModel)]="ticket.quantity"
+                      <input type="number" style="width:30px;color:#FF2E6A;border:0;border-bottom: 0.2px solid;" placeholder="#" [(ngModel)]="ticket.quantity"
                         (change)="calculatePrice()">
                     </td>
-                    <td>Entrada Común</td>
+                    <td>Entrada Común <p style="color:grey">(Quedan 100)</p></td>
                     <td class="text-right">$250</td>
 
                   </tr>
                   <tr>
                     <td>
-                      <input type="number" style="width:25px;color:#FF2E6A;border: 0px solid;background-color:#e5e5e5" placeholder="#" [(ngModel)]="ticket.quantity"
+                      <input type="number" style="width:30px;color:#FF2E6A;border:0;border-bottom: 0.2px solid;" placeholder="#" [(ngModel)]="ticket.quantity"
                         (change)="calculatePrice()">
                     </td>
-                    <td>Entrada VIP ++</td>
+                    <td>Entrada VIP ++ <p style="color:grey">(Quedan 50)</p></td>
                     <td class="text-right">$350</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="row">
-              <div class="container">
-            <input type="submit" name="" id="" class="btn2 float-sm-right font-weight-light" (click)="calculatePrice()" value="Pagar $600">
+               <div class="container">
+            <input type="submit" name="" id="" class="btn2 float-sm-right font-weight-light" (click)="calculatePrice()" value="Pagar $600" data-toggle="modal" data-target="#downloadapp">
               </div>
             </div>
             <div class="row paddingV">
@@ -73,10 +73,49 @@
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.4282706264967!2d13.38818681616263!3d52.50758812981195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d15c26d8cd%3A0x23a50042477d89c8!2sCheckpoint+Charlie!5e0!3m2!1ses!2sar!4v1519936468446"
                   width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
               </div>
-            </div>
+             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+  </section>
+
+<!-- Modal Download APP-->
+<div class="modal fade" id="downloadapp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-light" id="exampleModalLongTitle">
+          <img src="../assets/img/Logos/MDPI 48x48.png" width="48" height="48" alt=""> ticketPass
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body font-weight-light">
+        Para una mejor experiencia te recordamos bajar nuestra app desde Play Store y App Store.
+                <div class="row paddingV">
+                  <div class="col-lg-6 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                      <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                        <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/playstore300.png" alt="linkplaystore"></a>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-xs-12">
+                    <div class="text-center">
+                      <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                        <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/appstore300.png" alt="linkplaystore">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+      </div>
+      <div class="modal-footer">
+        <a routerLink="/content/sale" class="btn btn-primary white font-weight-light">Continuar
+        <i class="fas fa-chevron-circle-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+

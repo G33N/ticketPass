@@ -64,6 +64,21 @@
   width: 100%;
 }
 
+.stores2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -webkit-filter: contrast(220%);
+    filter: contrast(220%);
+}
+
+.storesh:hover {
+    -webkit-filter: contrast(100%);
+    filter: contrast(100%);
+}
 @media (max-width: 768px) {
 
   .pinkevent {

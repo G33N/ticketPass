@@ -21,6 +21,7 @@ import { LoadingComponent } from './ui/loading/loading.component';
 
 import { FormsModule } from '@angular/forms';
 import { FacebookModule } from 'ngx-facebook';
+import { SaleComponent } from './sale/sale.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FacebookModule } from 'ngx-facebook';
     HomeComponent,
     HeaderComponent,
     ContactComponent,
-    LoadingComponent
+    LoadingComponent,
+    SaleComponent
   ],
   imports: [
     BrowserModule,
