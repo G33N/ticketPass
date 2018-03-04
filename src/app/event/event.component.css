@@ -91,4 +91,8 @@
   .coverpadding {
     padding-bottom: 30px;
   }
+
+  .map{
+    height: 300px;
+  }
 }
