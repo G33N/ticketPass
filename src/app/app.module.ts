@@ -22,7 +22,7 @@ import { LoadingComponent } from './ui/loading/loading.component';
 import { FormsModule } from '@angular/forms';
 import { FacebookModule } from 'ngx-facebook';
 import { AgmCoreModule } from '@agm/core';
-
+import { SaleComponent } from './sale/sale.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { AgmCoreModule } from '@agm/core';
     HomeComponent,
     HeaderComponent,
     ContactComponent,
-    LoadingComponent
+    LoadingComponent,
+    SaleComponent
   ],
   imports: [
     BrowserModule,

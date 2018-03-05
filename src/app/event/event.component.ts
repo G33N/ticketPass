@@ -1,8 +1,9 @@
 import { MercadoPagoService } from './../services/mercado-pago/mercado-pago.service';
 import { EventsService } from './../services/events/events.service';
 import { Observable } from 'rxjs/Observable';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { Events } from '../models/events';
+import { Ticket } from '../models/ticket';
 // ROUTER
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 // FORMS
@@ -15,14 +16,16 @@ import { forEach } from '@angular/router/src/utils/collection';
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
-export class EventComponent implements OnInit {
+export class EventComponent implements OnInit, AfterContentChecked {
   eventKey: String;
   event: any;
   event$: any;
-  tickets: any;
   tickets$: any;
-  lat = 51.678418;
-  lng = 7.809007;
+  lat: string;
+  lng: string;
+  tickets: Ticket[];
+  total: number;
+
   constructor(
     private eventsService: EventsService,
     private mercadoPagoService: MercadoPagoService,
@@ -37,6 +40,8 @@ export class EventComponent implements OnInit {
     this.event$ = this.eventsService.readByKey(key);
     this.event$.subscribe(snapshot => {
       this.event = snapshot;
+      this.lat = snapshot.Location.Latitude;
+      this.lng = snapshot.Location.Longitude;
     });
   }
 
@@ -57,8 +62,17 @@ export class EventComponent implements OnInit {
     this.tickets$ = this.eventsService.getEventsTickets(key);
     this.tickets$.subscribe(snapshot => {
       this.tickets = snapshot;
+      // snapshot.forEach(element => {
+      //   const ticket = {
+      //     Id: element.Id,
+      //     Name: element.Name,
+      //     Price: element.Price,
+      //     Quantity: element.Quantity,
+      //     Remaining: element.Remaining
+      //   };
+      //   this.tickets.push(ticket);
       console.log(this.tickets);
-    });
+      });
   }
 
   getImage(images) {
@@ -78,6 +92,12 @@ export class EventComponent implements OnInit {
   ngOnInit() {
     this.read(this.getRouteParams());
     this.getTickets(this.getRouteParams());
+  }
+
+  AfterContentChecked() {
+    this.total = this.tickets.reduce( function( runningValue: number, ticket: Ticket ) => {
+      runningValue = runningValue + (ticket.Price * ticket.Quantity);
+    }, 0);
   }
 
 }

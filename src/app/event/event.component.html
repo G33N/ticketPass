@@ -29,53 +29,46 @@
       <div class="col">
         <div class="card">
           <img class="card-img-top" src="{{ getImage(event.Images) }}" alt="Card image">
-
           <div class="card-body">
             <h4 class="card-title font-weight-light">Subtítulo del evento</h4>
             <hr class="hr2">
             <p class="card-text font-weight-light">{{event.Description}}</p>
-            <div class="row hidden-sm-down">
-              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                <h5 class="font-weight-light">Tipo de ticket</h5>
-              </div>
-              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                <h5 class="font-weight-light">Cantidad</h5>
-              </div>
-              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                <h5 class="font-weight-light">Precio</h5>
-              </div>
-              <div class="col-lg-3 col-sm-12 col-xs-12 align-middle pinkbar2">
-                <h5></h5>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="table">
+            <div class="table-responsive-sm">
+              <table class="table font-weight-light">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Entrada</th>
+                    <th class="text-right">Valor</th>
+                  </tr>
+                </thead>
                 <tbody>
                   <tr *ngFor="let ticket of tickets">
                     <td>
-                      <input type="number">
+                      <input type="number" min="0" max="{{ ticket.Remaining }}" style="width:3em;color:#FF2E6A;border:0;border-bottom: 0.2px solid;" placeholder="#" (change)="calculatePrice()">
                     </td>
-                    <td>Ticket 1</td>
-                    <td>$total</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <button class="btn btn-primary" type="button">Comprar $total</button>
+                    <td> {{ ticket.Name }}
+                      <p style="color:grey">( Quedan {{ ticket.Remaining }} )</p>
                     </td>
+                    <td class="text-right">{{ ticket.Price }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 col-sm-12 col-xs-12">
-              <!-- this creates a google map on the page with the given lat/lng from -->
-              <!-- the component as the initial center of the map: -->
-              <agm-map [latitude]="lat" [longitude]="lng">
-                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-              </agm-map>
+            <div class="row">
+              <div class="container">
+                <input type="submit" name="" id="" class="btn2 float-sm-right font-weight-light" (click)="calculatePrice()" value="Pagar $600"
+                  data-toggle="modal" data-target="#downloadapp">
+              </div>
+            </div>
+            <div class="row paddingV">
+              <div class="col-lg-12 col-sm-12 col-xs-12">
+                <!-- this creates a google map on the page with the given lat/lng from -->
+                <!-- the component as the initial center of the map: -->
+                <agm-map [latitude]="lat" [longitude]="lng">
+                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
+              </div>
             </div>
           </div>
         </div>
@@ -83,3 +76,43 @@
     </div>
   </div>
 </section>
+
+<!-- Modal Download APP-->
+<div class="modal fade" id="downloadapp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-light" id="exampleModalLongTitle">
+          <img src="../assets/img/Logos/MDPI 48x48.png" width="48" height="48" alt=""> ticketPass
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body font-weight-light">
+        Para una mejor experiencia te recordamos bajar nuestra app desde Play Store y App Store.
+        <div class="row paddingV">
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="text-center">
+              <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/playstore300.png" alt="linkplaystore">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="text-center">
+              <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/appstore300.png" alt="linkplaystore">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a routerLink="/content/sale" class="btn btn-primary white font-weight-light">Continuar
+          <i class="fas fa-chevron-circle-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
