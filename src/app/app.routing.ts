@@ -7,6 +7,7 @@ import { EventComponent } from './event/event.component';
 import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
 import { SaleComponent } from './sale/sale.component';
+import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
 
 // AuthGuard
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
@@ -36,6 +37,10 @@ export const router: Routes = [
       {
         path: 'sale',
         component: SaleComponent
+      },
+      {
+        path: 'ticketpdf',
+        component: TicketpdfComponent
       }
     ]
   },

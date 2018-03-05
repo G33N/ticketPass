@@ -44,7 +44,7 @@ body {
     -webkit-box-shadow: 0px 1px 3px #666666;
     -moz-box-shadow: 0px 1px 3px #666666;
     box-shadow: 0px 1px 3px #666666;
-    color: #ffffff;
+    color: #ffffff!important;
     font-size: 18px;
     background: #FF2E6A;
     padding: 7px 20px 7px 20px;
