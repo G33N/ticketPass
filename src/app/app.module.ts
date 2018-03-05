@@ -22,6 +22,7 @@ import { LoadingComponent } from './ui/loading/loading.component';
 import { FormsModule } from '@angular/forms';
 import { FacebookModule } from 'ngx-facebook';
 import { SaleComponent } from './sale/sale.component';
+import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SaleComponent } from './sale/sale.component';
     HeaderComponent,
     ContactComponent,
     LoadingComponent,
-    SaleComponent
+    SaleComponent,
+    TicketpdfComponent
   ],
   imports: [
     BrowserModule,
