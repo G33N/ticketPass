@@ -10,7 +10,7 @@ import { SaleComponent } from './sale/sale.component';
 import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
 
 // AuthGuard
-import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { AuthGuard } from './services/auth-guard/auth-guard.service';
 
 export const router: Routes = [
   {
@@ -32,15 +32,18 @@ export const router: Routes = [
       },
       {
         path: 'event/:id',
-        component: EventComponent
+        component: EventComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'sale',
-        component: SaleComponent
+        component: SaleComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'ticketpdf',
-        component: TicketpdfComponent
+        component: TicketpdfComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },

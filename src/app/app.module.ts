@@ -1,10 +1,14 @@
-import { LoginService } from './services/login/login.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from './../environments/environment';
+import { AuthService } from './services/auth/auth.service';
+import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { MercadoPagoService } from './services/mercado-pago/mercado-pago.service';
 import { EventsService } from './services/events/events.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 
 import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
@@ -20,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './ui/loading/loading.component';
 
 import { FormsModule } from '@angular/forms';
-import { FacebookModule } from 'ngx-facebook';
 import { AgmCoreModule } from '@agm/core';
 import { SaleComponent } from './sale/sale.component';
 import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
@@ -45,7 +48,8 @@ import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
     HttpClientModule,
     routes,
     FormsModule,
-    FacebookModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA1d42Clwz6sTqocsvk4S1OU8Zh-P9hHFw'
     })
@@ -53,7 +57,8 @@ import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
   providers: [
     EventsService,
     MercadoPagoService,
-    LoginService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

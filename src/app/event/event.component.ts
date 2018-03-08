@@ -16,13 +16,11 @@ import { forEach } from '@angular/router/src/utils/collection';
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
-export class EventComponent implements OnInit, AfterContentChecked {
+export class EventComponent implements OnInit {
   eventKey: String;
   event: any;
   event$: any;
   tickets$: any;
-  lat: string;
-  lng: string;
   tickets: Ticket[];
   total: number;
 
@@ -40,8 +38,6 @@ export class EventComponent implements OnInit, AfterContentChecked {
     this.event$ = this.eventsService.readByKey(key);
     this.event$.subscribe(snapshot => {
       this.event = snapshot;
-      this.lat = snapshot.Location.Latitude;
-      this.lng = snapshot.Location.Longitude;
     });
   }
 
@@ -71,7 +67,6 @@ export class EventComponent implements OnInit, AfterContentChecked {
       //     Remaining: element.Remaining
       //   };
       //   this.tickets.push(ticket);
-      console.log(this.tickets);
       });
   }
 
@@ -93,11 +88,4 @@ export class EventComponent implements OnInit, AfterContentChecked {
     this.read(this.getRouteParams());
     this.getTickets(this.getRouteParams());
   }
-
-  AfterContentChecked() {
-    this.total = this.tickets.reduce( function( runningValue: number, ticket: Ticket ) => {
-      runningValue = runningValue + (ticket.Price * ticket.Quantity);
-    }, 0);
-  }
-
 }

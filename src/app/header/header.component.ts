@@ -1,4 +1,5 @@
-import { LoginService } from './../services/login/login.service';
+import { log } from 'util';
+import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private loginService: LoginService) { }
+  logged: boolean;
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.loginService.getLoginStatus();
   }
   login() {
-    this.loginService.loginFacebook();
+    this.authService.facebookLogin();
+  }
+  logout() {
+    this.authService.logout();
   }
 }
