@@ -20,9 +20,11 @@ export class EventComponent implements OnInit {
   eventKey: String;
   event: any;
   event$: any;
+  events$: any;
+  events;
   tickets$: any;
   tickets: Ticket[];
-  total: number;
+  total: number = 0;
 
   constructor(
     private eventsService: EventsService,
@@ -49,8 +51,15 @@ export class EventComponent implements OnInit {
     return param.id;
   }
 
-  calculatePrice(): void {
-    // Calculate price of the quantity
+  calculatePrice(qty, ticketId): void {
+    let temporal_total = 0;
+    this.total = 0;
+    for (const key in this.tickets) {
+      if(this.tickets[key].Id === ticketId) {
+        this.tickets[key].Quantity = parseInt(qty);
+      }
+      this.total += this.tickets[key].Price * this.tickets[key].Quantity;
+    }
   }
 
   getTickets(key) {
@@ -58,15 +67,10 @@ export class EventComponent implements OnInit {
     this.tickets$ = this.eventsService.getEventsTickets(key);
     this.tickets$.subscribe(snapshot => {
       this.tickets = snapshot;
-      // snapshot.forEach(element => {
-      //   const ticket = {
-      //     Id: element.Id,
-      //     Name: element.Name,
-      //     Price: element.Price,
-      //     Quantity: element.Quantity,
-      //     Remaining: element.Remaining
-      //   };
-      //   this.tickets.push(ticket);
+      for (const ticket_key in this.tickets) {
+        this.tickets[ticket_key].Quantity = 1;
+        this.total += this.tickets[ticket_key].Price * this.tickets[ticket_key].Quantity;
+      }
       });
   }
 
@@ -79,13 +83,31 @@ export class EventComponent implements OnInit {
     });
     return imageUri;
   }
+  
+  getAllEvents() {
+    this.events$ = this.eventsService.getAllEvents();
+    this.events$.subscribe(snapshot => {
+      this.events = snapshot;
+    });
+  }
 
   buy(): void {
     this.mercadoPagoService.getPaymentMethods();
+  }
+
+  goToSale() {
+    let event = {
+      tickets: this.tickets,
+      total: this.total,
+      eventId: this.getRouteParams()
+    };
+    this.eventsService.saveEventOject(event);
+    this.router.navigate(['/content/sale']);
   }
 
   ngOnInit() {
     this.read(this.getRouteParams());
     this.getTickets(this.getRouteParams());
   }
+
 }

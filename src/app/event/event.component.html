@@ -1,6 +1,6 @@
 <section id="top">
   <div class="pinkevent case">
-    <div class="paddingV element">
+    <div class="paddingV element" *ngIf="event">
       <div class="container text-uppercase">
         <div class="row">
           <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -14,7 +14,7 @@
           </div>
           <div class="col-lg-12 col-sm-12 col-xs-12">
             <div id="eventdata" class="float-left">
-              <p>
+              <p *ngIf="event.Location">
                 <i class="fas fa-map-marker"></i> {{event.Location.FullAddress}}</p>
             </div>
           </div>
@@ -28,7 +28,7 @@
     <div class="row paddingV">
       <div class="col">
         <div class="card">
-          <img class="card-img-top" src="{{ getImage(event.Images) }}" alt="Card image">
+          <img class="card-img-top" *ngIf="event.Images" src="{{ getImage(event.Images) }}" alt="Card image">
           <div class="card-body">
             <h4 class="card-title font-weight-light">Subtítulo del evento</h4>
             <hr class="hr2">
@@ -45,28 +45,32 @@
                 <tbody>
                   <tr *ngFor="let ticket of tickets">
                     <td>
-                      <input type="number" min="0" max="{{ ticket.Remaining }}" style="width:3em;color:#FF2E6A;border:0;border-bottom: 0.2px solid;" placeholder="#" (change)="calculatePrice()">
+                      <input type="number" min="1" max="{{ ticket.Remaining }}" style="width:3em;color:#FF2E6A;border:0;border-bottom: 0.2px solid;"
+                        placeholder="#" (change)="calculatePrice($event.target.value, ticket.Id)">
                     </td>
                     <td> {{ ticket.Name }}
                       <p style="color:grey">( Quedan {{ ticket.Remaining }} )</p>
                     </td>
-                    <td class="text-right">{{ ticket.Price }}</td>
+                    <td class="text-right">
+                      {{ ticket.Price * ticket.Quantity}}
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="row">
               <div class="container">
-                <input type="submit" name="" id="" class="btn2 float-sm-right font-weight-light" (click)="calculatePrice()" value="Pagar $600"
-                  data-toggle="modal" data-target="#downloadapp">
+                <input type="submit" name="" id="" class="btn2 float-sm-right font-weight-light" value="Pagar ${{total}}" data-toggle="modal"
+                  data-target="#downloadapp">
               </div>
             </div>
             <div class="row paddingV">
               <div class="col-lg-12 col-sm-12 col-xs-12">
                 <!-- this creates a google map on the page with the given lat/lng from -->
                 <!-- the component as the initial center of the map: -->
-                <agm-map [latitude]="event.Location.Latitude" [longitude]="event.Location.Longitude">
-                  <agm-marker [latitude]="event.Location.Latitude" [longitude]="event.Location.Longitude"></agm-marker>
+
+                <agm-map *ngIf="event.Location" [latitude]="event.Location.Latitude" [longitude]="event.Location.Longitude">
+                  <agm-marker *ngIf="event.Location" [latitude]="event.Location.Latitude" [longitude]="event.Location.Longitude"></agm-marker>
                 </agm-map>
               </div>
             </div>
@@ -75,6 +79,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- Modal Download APP-->
@@ -109,7 +114,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a routerLink="/content/sale" class="btn btn-primary white font-weight-light">Continuar
+        <a (click)="goToSale()" class="btn btn-primary white font-weight-light close" data-dismiss="modal" aria-label="Close">Continuar
           <i class="fas fa-chevron-circle-right"></i>
         </a>
       </div>

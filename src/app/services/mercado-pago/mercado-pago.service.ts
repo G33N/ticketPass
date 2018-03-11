@@ -21,4 +21,14 @@ export class MercadoPagoService {
     const mpMethods$ = this.http.get(this.apiUrl + this.entity, this.httpOptions);
     return mpMethods$;
   }
+
+  public getTokenCreditCard(credit_card) {
+    const mpCreditCard$ = this.http.post('https://api.mercadopago.com/v1/card_tokens?public_key=TEST-18184d45-13bc-45a8-ba74-f034d5ecc826', credit_card);
+    return mpCreditCard$;
+  }
+
+  public sendOrders(order) {
+      const mpOrders$ = this.http.get(this.apiUrl + 'orders', this.httpOptions);
+      return mpOrders$;
+  }
 }

@@ -3,9 +3,9 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
-export class EventsService {
+export class ResellerService {
   apiUrl = environment.apiUrl;
-  entity = 'events/';
+  entity = 'resellers/';
   eventObject;
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,27 +18,12 @@ export class EventsService {
     private http: HttpClient
   ) { }
 
-  public getAllEvents() {
+  public getAllReseller() {
     // now returns an Observable of Config
-    const events$ = this.http.get(this.apiUrl + this.entity + 'oftype/1', this.httpOptions);
-    return events$;
+    const resellers$ = this.http.get(this.apiUrl + this.entity , this.httpOptions);
+    console.log('resellers', resellers$);
+    return resellers$;
   }
-  public readByKey(key) {
-    // now returns an Observable of Config
-    const event$ = this.http.get(this.apiUrl + this.entity + key + '/html', this.httpOptions);
-    return event$;
-  }
-  public getEventsTickets(key) {
-    // now returns an Observable of Config
-    const event$ = this.http.get(this.apiUrl + this.entity + key + '/tickets', this.httpOptions);
-    return event$;
-  }
-  public saveEventOject(event_object) {
-    this.eventObject = {};
-    this.eventObject = event_object;
-  }
-  public getEventObject(){
-    return this.eventObject;
-  }
+
 }
 

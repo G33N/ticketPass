@@ -22,26 +22,29 @@
             <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
                 <div class="icons">
                     <span class="fa-layers">
-            <i class="fa fa-circle"></i>
-            <i class="fa fa-crosshairs fa-inverse"></i>
-          </span>
+                        <i class="fa fa-circle"></i>
+                        <i class="fa fa-crosshairs fa-inverse"></i>
+                    </span>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
                 <div class="icons">
                     <i class="far fa-credit-card"></i>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
                 <div class="icons">
                     <i class="fas fa-qrcode"></i>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
         </div>
         <div class="row">
@@ -50,27 +53,30 @@
                     <i class="fas fa-search"></i>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
                 <div class="icons">
                     <span class="fa-layers fa-fw">
-            <i class="fas fa-circle"></i>
-            <i class="fa-inverse fab fa-facebook-f" data-fa-transform="shrink-6"></i>
-          </span>
+                        <i class="fas fa-circle"></i>
+                        <i class="fa-inverse fab fa-facebook-f" data-fa-transform="shrink-6"></i>
+                    </span>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
             <div class="col-lg-4 col-sm-4 col-xs-12 text-center">
                 <div class="icons">
                     <span class="fa-layers fa-fw">
-            <i class="fas fa-circle"></i>
-            <i class="fa-inverse fas fa-times" data-fa-transform="shrink-6"></i>
-          </span>
+                        <i class="fas fa-circle"></i>
+                        <i class="fa-inverse fas fa-times" data-fa-transform="shrink-6"></i>
+                    </span>
                 </div>
                 <hr class="hr">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut bibendum laoreet quam vitae semper. Fusce vitae
+                    eleifend erat. Nunc iaculis nisi felis, id gravida velit blandit ac.</p>
             </div>
         </div>
     </div>
@@ -83,19 +89,21 @@
             <hr class="hr">
         </div>
         <div class="row paddingB">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://cdn2.abc-mallorca.com/wp-content/uploads/2013/08/nightlife-mallorca-img01.jpg" alt="Card image cap">
+            <div class="col" *ngFor="let event of events; let i = index">
+                <div *ngIf="i > events.length - 4" class="card" style="width: 18rem;">
+                    <div class="img-container">
+                        <img class="card-img-top" src="{{event.ImageUri}}">
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Evento x</h5>
-                        <p>Fecha</p>
-                        <p>Lugar</p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Ir al evento</a>
+                        <h5 class="card-title font-weight-light">{{event.Title}}</h5>
+                        <time>{{event.StartDateTime}}</time>
+                        <p class="card-text font-weight-light">{{event.Description}}</p>
+                        <a (click)="goToEventDetails(event)" class="btn btn-primary font-weight-light white">Ir al evento</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="text-center">
             <a routerLink="/content/events" class="btn btn-primary">Ver todos los eventos</a>
         </div>
@@ -108,20 +116,20 @@
         <h3 class="text-uppercase font-weight-light text-center">Bajá la app ya!</h3>
         <hr class="hr">
         <div class="row">
-                <div class="col-lg-6 col-sm-6 col-xs-12">
-                    <div class="text-center">
-                        <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
-                            <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/playstore300.png" alt="linkplaystore">
-                        </a>
-                    </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="text-center">
+                    <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                        <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/playstore300.png" alt="linkplaystore">
+                    </a>
                 </div>
-                <div class="col-lg-6 col-sm-6 col-xs-12">
-                    <div class="text-center">
-                        <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
-                            <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/appstore300.png" alt="linkplaystore">
-                        </a>
-                    </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+                <div class="text-center">
+                    <a href="https://play.google.com/store/apps/details?id=ar.com.ticketpass&hl=es">
+                        <img class="img-fluid stores2 storesh" src="../assets/img/storesLogos/appstore300.png" alt="linkplaystore">
+                    </a>
                 </div>
+            </div>
         </div>
     </div>
 </section>

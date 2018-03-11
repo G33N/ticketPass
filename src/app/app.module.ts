@@ -6,6 +6,7 @@ import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { MercadoPagoService } from './services/mercado-pago/mercado-pago.service';
 import { EventsService } from './services/events/events.service';
+import { ResellerService } from './services/reseller/reseller.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -58,6 +59,7 @@ import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
     EventsService,
     MercadoPagoService,
     AuthService,
+    ResellerService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
