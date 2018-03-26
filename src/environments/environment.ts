@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://ticketsapidev.apphb.com/api/',
+  apiUrl: 'https://ticketsapidev.apphb.com/api/',
   firebase: {
     apiKey: 'AIzaSyAUlOmbKLIoAXLtRDFdAyaosTXEMGdRqfM',
     authDomain: 'ticketpass-40a36.firebaseapp.com',

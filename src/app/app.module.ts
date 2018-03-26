@@ -25,9 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './ui/loading/loading.component';
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { SaleComponent } from './sale/sale.component';
 import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -49,8 +51,10 @@ import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
     HttpClientModule,
     routes,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA1d42Clwz6sTqocsvk4S1OU8Zh-P9hHFw'
     })

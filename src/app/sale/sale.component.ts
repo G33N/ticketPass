@@ -32,7 +32,7 @@ export class SaleComponent implements OnInit {
           },
         'name': 'APRO'
       }
-  }
+  };
   public paymentId: string;
 
 
@@ -65,7 +65,7 @@ export class SaleComponent implements OnInit {
     this.creditCardToken$ = this.mercadoPagoService.getTokenCreditCard(this.credit_card);
     this.creditCardToken$.subscribe(snapshot => {
       this.creditCardToken = snapshot.id;
-      if(this.creditCardToken) {
+      if (this.creditCardToken) {
         this.sendToMercadoPago(this.creditCardToken);
       }
     });
@@ -73,7 +73,7 @@ export class SaleComponent implements OnInit {
   }
 
   sendToMercadoPago(creditCardToken) {
-    let orders = {
+    const orders = {
       'PaymentInformation': {
         'CreditCardToken': creditCardToken,
         'PaymentMethodId': this.paymentId,
@@ -85,11 +85,12 @@ export class SaleComponent implements OnInit {
       'TicketsOrder': []
     };
 
-    for (let ticket_key in this.eventObject.tickets) {
-      let ticket = {
+    // tslint:disable-next-line:forin
+    for (const ticket_key in this.eventObject.tickets) {
+      const ticket = {
         TicketTypeId: this.eventObject.tickets[ticket_key].Id,
         Units: this.eventObject.tickets[ticket_key].Quantity
-      }
+      };
       orders.TicketsOrder.push(ticket);
     }
     this.mercadoPagoService.sendOrders(orders).subscribe(

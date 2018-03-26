@@ -51,8 +51,11 @@
                     <td> {{ ticket.Name }}
                       <p style="color:grey">( Quedan {{ ticket.Remaining }} )</p>
                     </td>
-                    <td class="text-right">
-                      {{ ticket.Price * ticket.Quantity}}
+                    <td class="text-right" *ngIf="ticket.Quantity == 0">
+                      {{ ticket.Price }}
+                    </td>
+                    <td class="text-right" *ngIf="ticket.Quantity != 0">
+                      {{ ticket.Price * ticket.Quantity }}
                     </td>
                   </tr>
                 </tbody>

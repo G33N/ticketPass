@@ -24,7 +24,7 @@ export class EventComponent implements OnInit {
   events;
   tickets$: any;
   tickets: Ticket[];
-  total: number = 0;
+  total = 0;
 
   constructor(
     private eventsService: EventsService,
@@ -52,10 +52,12 @@ export class EventComponent implements OnInit {
   }
 
   calculatePrice(qty, ticketId): void {
-    let temporal_total = 0;
+    const temporal_total = 0;
     this.total = 0;
+    // tslint:disable-next-line:forin
     for (const key in this.tickets) {
-      if(this.tickets[key].Id === ticketId) {
+      if (this.tickets[key].Id === ticketId) {
+        // tslint:disable-next-line:radix
         this.tickets[key].Quantity = parseInt(qty);
       }
       this.total += this.tickets[key].Price * this.tickets[key].Quantity;
@@ -67,8 +69,9 @@ export class EventComponent implements OnInit {
     this.tickets$ = this.eventsService.getEventsTickets(key);
     this.tickets$.subscribe(snapshot => {
       this.tickets = snapshot;
+      // tslint:disable-next-line:forin
       for (const ticket_key in this.tickets) {
-        this.tickets[ticket_key].Quantity = 1;
+        this.tickets[ticket_key].Quantity = 0;
         this.total += this.tickets[ticket_key].Price * this.tickets[ticket_key].Quantity;
       }
       });
@@ -83,7 +86,7 @@ export class EventComponent implements OnInit {
     });
     return imageUri;
   }
-  
+
   getAllEvents() {
     this.events$ = this.eventsService.getAllEvents();
     this.events$.subscribe(snapshot => {
@@ -96,7 +99,7 @@ export class EventComponent implements OnInit {
   }
 
   goToSale() {
-    let event = {
+    const event = {
       tickets: this.tickets,
       total: this.total,
       eventId: this.getRouteParams()
