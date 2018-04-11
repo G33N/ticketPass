@@ -3,23 +3,24 @@
     <div class="row">
       <div class="col-lg-5 col-sm-5 col-xs-12 mx-auto">
         <div class="card" style="width:100%;">
-<img class="card-img-top" src="http://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DADPk5PpkjMg&s=8&e=m"
-
-  alt="Generador de Códigos QR Codes" />
-
+          <ngx-qrcode [qrc-value]="12345" qrc-class="aclass" qrc-errorCorrectionLevel="L">
+          </ngx-qrcode>
           <div class="card-body">
-            <h3 class="card-title font-weight-light"><img src="../assets/img/Logos/MDPI 48x48.png" width="50" height="50" class="d-inline-block align-middle" alt=""> ticketPass</h3>
+            <h3 class="card-title font-weight-light">
+              <img src="../assets/img/Logos/MDPI 48x48.png" width="50" height="50" class="d-inline-block align-middle" alt=""> ticketPass</h3>
             <hr class="hr">
             <h5 class="font-weight-light">Nombre del Evento</h5>
             <br>
-            <p class="font-weight-light"><i class="fas fa-calendar-alt"></i> Fecha - Horario</p>
-            <p class="font-weight-light"><i class="fas fa-map-marker"></i> Ubicación Evento</p>
+            <p class="font-weight-light">
+              <i class="fas fa-calendar-alt"></i> Fecha - Horario</p>
+            <p class="font-weight-light">
+              <i class="fas fa-map-marker"></i> Ubicación Evento</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item font-weight-light">Nombre Usuario</li>
             <li class="list-group-item font-weight-light">DNI Usuario</li>
           </ul>
-          
+
           <div class="card-body text-center">
             <a href="https://www.ticketpass.com.ar" class="ticketlink">www.ticketpass.com.ar</a>
           </div>

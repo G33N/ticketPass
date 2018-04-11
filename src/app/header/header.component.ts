@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
+    this.logged = this.authService.checkLoggin();
   }
   login() {
     this.authService.facebookLogin();

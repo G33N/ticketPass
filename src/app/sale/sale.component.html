@@ -85,7 +85,7 @@
           <div class="card font-weight-light">
             <div class="card-header" id="headingOne">
               <label for="promoter">Tarjeta</label>
-              <select name="payment_id" [(ngModel)]="paymentId" class="custom-select">
+              <select name="payment_id" (ngModel)="paymentId" class="custom-select">
                 <option value="{{ payment.id }}" *ngFor="let payment of payments">{{ payment.name }}</option>
               </select>
             </div>
@@ -99,53 +99,25 @@
                   </div>
                   <div class="form-group" id="card-number-field">
                     <label for="cardNumber">Número Tarjeta</label>
-                    <input type="text" name="cardNumber" [(ngModel)]="credit_card.cardNumberLength" class="form-control" id="cardNumber">
+                    <input type="text" name="cardNumber" (ngModel)="credit_card.cardNumberLength" class="form-control" id="cardNumber">
                   </div>
                   <div class="row">
                     <div class="col">
                       <div class="form-group">
                         <label for="cvv">Código Seguridad</label>
-                        <input type="text" name="security_code" [(ngModel)]="credit_card.securityCode" class="form-control" id="cvv" placeholder="123">
+                        <input type="text" name="security_code" (ngModel)="credit_card.securityCode" class="form-control" id="cvv" placeholder="123">
                       </div>
                     </div>
                     <div class="col">
                       <label class="form-label" for="password">Fecha Vencimiento</label>
                       <div class="form-row">
-
                         <div class="col">
-
-                          <select name="month" [(ngModel)]="credit_card.expiration_month" class="custom-select" id="paymonth">
-                            <option selected value="01">Enero</option>
-                            <option value="02">Febrero </option>
-                            <option value="03">Marzo</option>
-                            <option value="04">Abril</option>
-                            <option value="05">Mayo</option>
-                            <option value="06">Junio</option>
-                            <option value="07">Julio</option>
-                            <option value="08">Agosto</option>
-                            <option value="09">Septiembre</option>
-                            <option value="10">Octubre</option>
-                            <option value="11">Noviembre</option>
-                            <option value="12">Diciembre</option>
-                          </select>
+                          <input type="number" (ngModel)="credit_card.expiration_month">
                         </div>
                         <div class="col">
-
-                          <select name="year" [(ngModel)]="credit_card.expiration_year" class="custom-select" id="payyear">
-                            <option selected value="2018">2018</option>
-                            <option value="2019">2019 </option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                          </select>
+                          <input type="number" (ngModel)="credit_card.expiration_year">
                         </div>
                       </div>
-
                     </div>
                   </div>
                   <button [disabled]="!ngForm.valid" (click)="buildCreditCard()"> Pagar </button>

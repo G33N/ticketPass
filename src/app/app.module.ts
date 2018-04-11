@@ -30,6 +30,11 @@ import { AgmCoreModule } from '@agm/core';
 import { SaleComponent } from './sale/sale.component';
 import { TicketpdfComponent } from './ticketpdf/ticketpdf.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ContactService } from './services/contact/contact.service';
+import { FilterEventsPipe } from './pipes/filter-events.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 @NgModule({
   declarations: [
@@ -44,14 +49,17 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     ContactComponent,
     LoadingComponent,
     SaleComponent,
-    TicketpdfComponent
+    TicketpdfComponent,
+    FilterEventsPipe
   ],
   imports: [
     BrowserModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     routes,
     FormsModule,
     ReactiveFormsModule,
+    NgxQRCodeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -64,6 +72,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     MercadoPagoService,
     AuthService,
     ResellerService,
+    ContactService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

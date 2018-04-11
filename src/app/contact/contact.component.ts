@@ -1,3 +1,4 @@
+import { ContactService } from './../services/contact/contact.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder, private afDb: AngularFireDatabase) { }
+  constructor(private fb: FormBuilder, private afDb: AngularFireDatabase, private contactService: ContactService) { }
 
   ngOnInit() {
     this.createForm();
@@ -18,23 +19,25 @@ export class ContactComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      message: ['', Validators.required],
+      Subject: ['', Validators.required],
+      Email: ['', Validators.required],
+      Body: ['', Validators.required],
     });
   }
 
   onSubmit() {
-    const { name, email, message } = this.form.value;
+    const { Subject, Email, Body } = this.form.value;
     const date = Date();
     const html = `
-      <div>From: ${name}</div>
-      <div>Email: <a href="mailto:${email}">${email}</a></div>
+      <div>Subject: ${Subject}</div>
+      <div>Email: <a href="mailto:${Email}">${Email}</a></div>
       <div>Date: ${date}</div>
-      <div>Message: ${message}</div>
+      <div>Message: ${Body}</div>
     `;
-    const formRequest = { name, email, message, date, html };
-    this.afDb.list('/messages').push(formRequest);
+    // This is for sent mails throught firebase functions.
+    const formRequest = { Subject, Email, Body };
+    // this.afDb.list('/messages').push(formRequest);
+    this.contactService.sendEmail(formRequest);
     this.form.reset();
   }
 

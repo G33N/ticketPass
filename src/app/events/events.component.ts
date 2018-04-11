@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.events$ = this.eventsService.getAllEvents().subscribe(events => {
-      this.events = events as Events[];
+      this.events = events;
       this.showSpinner = false;
     });
   }

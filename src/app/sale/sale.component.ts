@@ -3,6 +3,7 @@ import { EventsService } from '../services/events/events.service';
 import { Router } from '@angular/router';
 import { ResellerService } from '../services/reseller/reseller.service';
 import { MercadoPagoService } from '../services/mercado-pago/mercado-pago.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sale',
@@ -34,12 +35,14 @@ export class SaleComponent implements OnInit {
       }
   };
   public paymentId: string;
+  form: FormGroup;
 
 
   constructor(
     private eventsService: EventsService,
     private resellerService: ResellerService,
     private mercadoPagoService: MercadoPagoService,
+    private fb: FormBuilder,
     private router: Router
   ) {
   }
@@ -58,6 +61,13 @@ export class SaleComponent implements OnInit {
       this.router.navigate(['/content/events']);
     }
 
+  }
+  createForm() {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      message: ['', Validators.required],
+    });
   }
 
   buildCreditCard() {
